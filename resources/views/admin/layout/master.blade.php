@@ -73,6 +73,9 @@
     <script src="{{ asset('backend/assets/libs/simplebar/simplebar.min.js') }}"></script>
     <script src="{{ asset('backend/assets/libs/node-waves/waves.min.js') }}"></script>
 
+    <!-- Sweet Alert-->
+    <link href="{{ asset('backend/assets/libs/sweetalert2/sweetalert2.min.css') }} " rel="stylesheet" type="text/css" />
+
 
     <!-- apexcharts -->
     <script src="{{ asset('backend/assets/libs/apexcharts/apexcharts.min.js') }}"></script>
@@ -97,6 +100,12 @@
 
     <!-- App js -->
     <script src="{{ asset('backend/assets/js/app.js') }}"></script>
+    <!-- Sweet Alerts js -->
+    <script src="{{ asset('backend/assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+
+    <!-- Sweet alert init js-->
+    <script src="{{ asset('backend/assets/js/pages/sweet-alerts.init.js') }}"></script>
+
     @stack('script')
 </body>
 
