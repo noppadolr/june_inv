@@ -39,6 +39,7 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
         $user->password = Hash::make($request->password);
+        /** @var \App\Models\User $user **/
         $user->save();
         Auth::guard('web')->logout();
 
