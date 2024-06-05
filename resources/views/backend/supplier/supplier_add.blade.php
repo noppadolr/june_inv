@@ -40,7 +40,7 @@
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Supplier Name</label>
                                         <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                            id="name" name="name">
+                                            id="name" name="name" value="{{ old('name') }}">
                                         @error('name')
                                         <span class="text-danger"> {{ $message }}</span>
                                         @enderror
@@ -51,7 +51,7 @@
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Email</label>
                                         <input type="text" class="form-control @error('email') is-invalid @enderror"
-                                            id="email" name="email">
+                                            id="email" name="email" value="{{ old('email') }}">
                                         @error('email')
                                         <span class="text-danger"> {{ $message }}</span>
                                         @enderror
@@ -64,7 +64,7 @@
                                     <div class="mb-3">
                                         <label for="phone" class="form-label">Phone</label>
                                         <input type="text" class="form-control @error('phone') is-invalid @enderror"
-                                            id="phone" name="phone">
+                                            id="phone" name="phone" value="{{ old('phone') }}">
                                         @error('phone')
                                         <span class="text-danger"> {{ $message }}</span>
                                         @enderror
@@ -76,7 +76,7 @@
                                     <div class="mb-3">
                                         <label>Address</label>
                                         <div>
-                                            <textarea  class="form-control @error('address') is-invalid @enderror" rows="4" name="address"></textarea>
+                                            <textarea  class="form-control @error('address') is-invalid @enderror" rows="4" name="address">{{ old('address') }}</textarea>
                                             @error('address')
                                             <span class="text-danger"> {{ $message }}</span>
                                             @enderror

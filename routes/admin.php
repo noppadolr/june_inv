@@ -26,6 +26,9 @@ Route::middleware('auth')->group(function(){
         Route::get('supplier/all','SupplierAll')->name('supplier.all');
         Route::get('supplier/add','SupplierAdd')->name('supplier.add');
         Route::post('suppler/store','store')->name('supplier.store');
+        Route::put('supplier/update','SupplierUpdate')->name('supplier.update');
+        Route::get('supplier/edit/{id}','SupplierEdit')->name('supplier.edit');
+        Route::get('supplier/delete/{id}','SupplierDelete')->name('supplier.delete');
 
     });
 

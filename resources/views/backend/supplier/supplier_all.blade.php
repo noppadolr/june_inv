@@ -34,8 +34,10 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <a href="{{ route('supplier.add') }}" class="btn btn-primary btn-rounded waves-effect waves-light"
-                            style="float:right;"><i class="fas fa-plus-circle"> Add Supplier </i></a> <br> <br>
+                        <a href="{{ route('supplier.add') }}"
+                            class="btn btn-primary btn-rounded waves-effect waves-light" style="float:right;"><i
+                                class="fas fa-plus-circle"> Add Supplier </i></a> <br> <br>
+                       
 
                         <h4 class="card-title">Supplier All Data </h4>
 
@@ -62,24 +64,19 @@
                                     <td> {{ $item->email }} </td>
                                     <td> {{ $item->address }} </td>
                                     <td>
-                                        <a href="
-                                        {{-- {{ route('supplier.edit',$item->id) }} --}}
-                                        " class="btn btn-info sm"
-                                            title="Edit Data"> <i class="fas fa-edit"></i> </a>
+                                        <a href="{{ route('supplier.edit',$item->id) }}"
+                                            class="btn btn-warning btn-sm editbtn" id="editbutton" title="Edit Data"> <i
+                                                class="fas fa-edit"></i>
+                                        </a>
 
-                                        <a href="
-                                        {{-- {{ route('supplier.delete',$item->id) }} --}}
-                                        " class="btn btn-danger sm"
-                                            title="Delete Data" id="delete"> <i class="fas fa-trash-alt"></i> </a>
+                                        <a href="{{ route('supplier.delete',$item->id) }}" class="btn btn-danger btn-sm" title="Delete Data" id="delete"> <i
+                                                class="fas fa-trash-alt"></i> </a>
 
                                     </td>
-
                                 </tr>
                                 @endforeach
-
                             </tbody>
                         </table>
-
                     </div>
                 </div>
             </div> <!-- end col -->
@@ -91,8 +88,51 @@
 <!-- Required datatable js -->
 <script src="{{ asset('backend/assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('backend/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('code/code.js') }}"></script>
 
 <!-- Datatable init js -->
-<script src="{{ asset('backend/assets/js/pages/datatables.init.js') }}"></script>
+{{-- <script src="{{ asset('backend/assets/js/pages/datatables.init.js') }}"></script> --}}
+<script>        
+    @if(Session::has('supplier_updated'))
+        $(document).ready( function () {
+            const Toast = Swal.mixin({
+                    toast: true,
+                    position: "bottom-end",
+                    showConfirmButton: false,
+                    timer: 1500,
+                    timerProgressBar: true,
+                    backdrop: true,
+                    });
+                Toast.fire({
+                icon: "success",
+                title: '{{ session('supplier_updated') }}',  
+                });
+            
+            });    
+    @endif
+    </script>
+
+<script>        
+    @if(Session::has('deleted'))
+        $(document).ready( function () {
+            const Toast = Swal.mixin({
+                    toast: true,
+                    position: "bottom-end",
+                    showConfirmButton: false,
+                    timer: 1500,
+                    timerProgressBar: true,
+                    backdrop: true,
+                    });
+                Toast.fire({
+                icon: "success",
+                title: '{{ session('deleted') }}',  
+                });
+            
+            });    
+    @endif
+    </script>
+
+
+
 @endpush
 @endsection
